@@ -1,0 +1,9 @@
+# Allow all robots
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://jackslemonade.com/sitemap.xml
+
+# Crawl delay (ms)
+Crawl-delay: 1

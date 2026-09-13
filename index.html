@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jack's Lemonade - The Only Fresh Lemonade in 30 Flavors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Caveat:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #FFFBEE; font-family: "Nunito", "Helvetica Neue", Helvetica, sans-serif; color: #1D3B26; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    a { color: #0F4A26; text-decoration: none; }
+    a:hover { color: #2E7D3E; }
+    ::selection { background: #FFD21A; color: #0F4A26; }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 20px;
+      background: #FFFBEE;
+      border-bottom: 3px solid #0F4A26;
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #FFD21A;
+      flex: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 22px;
+      color: #0F4A26;
+    }
+
+    .brand-name {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: 0.02em;
+      color: #0F4A26;
+      line-height: 1;
+    }
+
+    .brand-tagline {
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: 19px;
+      color: #2E7D3E;
+      margin-left: 7px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      font-weight: 700;
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 99px;
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover {
+      background: rgba(15, 74, 38, 0.1);
+    }
+
+    .nav-cta {
+      background: #0F4A26;
+      color: #FFFBEE;
+      padding: 10px 16px;
+    }
+
+    .nav-cta:hover {
+      background: #2E7D3E;
+      color: #FFFBEE;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: #FFD21A;
+      padding: 52px 20px 60px;
+    }
+
+    .hero-deco {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .deco-shape {
+      position: absolute;
+      border-style: solid;
+      opacity: 0.5;
+    }
+
+    .deco-teardrop {
+      border-radius: 50% 50% 50% 0;
+      border-width: 3px;
+      border-color: #0F4A26;
+    }
+
+    .deco-leaf {
+      border-radius: 0 60% 0 60%;
+      border-width: 3px;
+      border-color: #2E7D3E;
+    }
+
+    .deco-dot {
+      background: #0F4A26;
+      border-radius: 99px;
+      opacity: 0.3;
+    }
+
+    .deco-heart {
+      font-family: 'Caveat', cursive;
+      color: #0F4A26;
+    }
+
+    .deco-circle {
+      border: 4px solid #F5B70B;
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 18px;
+    }
+
+    .hero-logo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: #FFD21A;
+      border: 4px solid #0F4A26;
+      flex: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 120px;
+    }
+
+    .hero-tagline {
+      margin: 0;
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: 34px;
+      color: #2E7D3E;
+      line-height: 1;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 800;
+      font-size: clamp(34px, 7vw, 66px);
+      line-height: 0.98;
+      color: #0F4A26;
+      letter-spacing: -0.01em;
+      text-wrap: balance;
+      max-width: 900px;
+    }
+
+    .hero-title .fresh {
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: 1.05em;
+      color: #2E7D3E;
+    }
+
+    .hero-description {
+      margin: 0;
+      max-width: 520px;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.5;
+      color: #14512A;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      padding-top: 6px;
+    }
+
+    .cta-primary {
+      display: inline-block;
+      padding: 16px 30px;
+      border-radius: 99px;
+      background: #0F4A26;
+      color: #FFFBEE;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 0 #08301A;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+    }
+
+    .cta-primary:hover {
+      background: #14512A;
+    }
+
+    .cta-secondary {
+      display: inline-block;
+      padding: 16px 30px;
+      border-radius: 99px;
+      background: #FFFBEE;
+      color: #0F4A26;
+      border: 3px solid #0F4A26;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: 0.03em;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .cta-secondary:hover {
+      background: #fff;
+    }
+
+    /* Promo Bar */
+    .promo-bar {
+      background: #0F4A26;
+      color: #FFD21A;
+      padding: 13px 20px;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.16em;
+      text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    /* About Section */
+    .about {
+      padding: 64px 20px;
+      background: #FFFBEE;
+    }
+
+    .about-content {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 44px;
+      align-items: center;
+    }
+
+    .about-text {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .section-label {
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: 28px;
+      color: #2E7D3E;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 800;
+      font-size: clamp(28px, 4.4vw, 44px);
+      line-height: 1.02;
+      color: #0F4A26;
+    }
+
+    .section-description {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.65;
+      font-weight: 600;
+      color: #1D3B26;
+      max-width: 52ch;
+      text-wrap: pretty;
+    }
+
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 4px;
+    }
+
+    .badge {
+      padding: 9px 16px;
+      border-radius: 99px;
+      background: #FFD21A;
+      color: #0F4A26;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+    }
+
+    .about-image {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .image-circle-frame {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(100%, 380px);
+      aspect-ratio: 1/1;
+      border: 4px solid #FFD21A;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .image-circle {
+      position: relative;
+      width: min(100%, 380px);
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-top: -14px;
+      display: block;
+    }
+
+    /* Menu Section */
+    .menu {
+      padding: 64px 20px 72px;
+      background: #FFD21A;
+    }
+
+    .menu-content {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .menu-header {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 30px;
+    }
+
+    .menu-title {
+      margin: 0;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 800;
+      font-size: clamp(30px, 5vw, 50px);
+      line-height: 1;
+      color: #0F4A26;
+    }
+
+    .menu-subtitle {
+      margin: 6px 0 0;
+      font-weight: 600;
+      font-size: 15px;
+      color: #14512A;
+      max-width: 46ch;
+    }
+
+    /* Tabs Mode */
+    .menu-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+
+    .menu-tab {
+      cursor: pointer;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 11px 18px;
+      border-radius: 99px;
+      border: 3px solid #0F4A26;
+      background: #FFFBEE;
+      color: #0F4A26;
+      transition: all 0.2s ease;
+    }
+
+    .menu-tab.active {
+      background: #0F4A26;
+      color: #FFD21A;
+    }
+
+    .menu-tab:hover {
+      transform: translateY(-2px);
+    }
+
+    .menu-panel {
+      background: #FFFBEE;
+      border: 3px solid #0F4A26;
+      border-radius: 26px;
+      padding: 26px 22px 22px;
+      box-shadow: 0 6px 0 #0F4A26;
+    }
+
+    .panel-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 10px;
+      padding-bottom: 14px;
+      border-bottom: 2px dashed #C9D9C4;
+    }
+
+    .panel-title {
+      margin: 0;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 800;
+      font-size: clamp(22px, 3.4vw, 30px);
+      color: #0F4A26;
+      line-height: 1.05;
+    }
+
+    .panel-subtitle {
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: 22px;
+      color: #2E7D3E;
+    }
+
+    .flavor-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .flavor-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 2px;
+      border-bottom: 1px solid #EAE3CB;
+    }
+
+    .flavor-item:last-child {
+      border-bottom: none;
+    }
+
+    .flavor-info {
+      flex: 1 1 auto;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .flavor-name {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 19px;
+      color: #14512A;
+      line-height: 1.15;
+    }
+
+    .flavor-note {
+      font-size: 13px;
+      font-weight: 700;
+      color: #2E7D3E;
+      letter-spacing: 0.03em;
+    }
+
+    .flavor-prices {
+      flex: none;
+      display: flex;
+      gap: 8px;
+    }
+
+    .price-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      min-width: 64px;
+      padding: 6px 8px;
+      border-radius: 12px;
+      background: #FFF6D6;
+    }
+
+    .price-label {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: #2E7D3E;
+    }
+
+    .price-value {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: #0F4A26;
+    }
+
+    /* Accordion Mode */
+    .accordion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .accordion-item {
+      background: #FFFBEE;
+      border: 3px solid #0F4A26;
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      cursor: pointer;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+      background: transparent;
+      border: 0;
+      padding: 18px 20px;
+      font-family: inherit;
+    }
+
+    .accordion-label {
+      flex: 1 1 auto;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .accordion-label-name {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      color: #0F4A26;
+      line-height: 1.1;
+    }
+
+    .accordion-label-sub {
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: 19px;
+      color: #2E7D3E;
+    }
+
+    .accordion-toggle {
+      flex: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #FFD21A;
+      color: #0F4A26;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 800;
+      font-size: 19px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .accordion-content.open {
+      max-height: 1000px;
+    }
+
+    .accordion-flavors {
+      list-style: none;
+      margin: 0;
+      padding: 0 20px 12px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .accordion-flavor {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px solid #EAE3CB;
+    }
+
+    .accordion-flavor-name {
+      flex: 1 1 auto;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: #14512A;
+    }
+
+    .accordion-flavor-note {
+      flex: none;
+      font-size: 12px;
+      font-weight: 700;
+      color: #2E7D3E;
+    }
+
+    .accordion-flavor-price {
+      flex: none;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: #0F4A26;
+    }
+
+    /* Seasonal */
+    .seasonal {
+      margin-top: 28px;
+      background: #FFFBEE;
+      border: 3px solid #0F4A26;
+      border-radius: 26px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      box-shadow: 0 6px 0 #0F4A26;
+    }
+
+    .seasonal-image {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .seasonal-content {
+      padding: 30px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .seasonal-badge {
+      align-self: flex-start;
+      padding: 7px 14px;
+      border-radius: 99px;
+      background: #2E7D3E;
+      color: #FFFBEE;
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+    }
+
+    .seasonal-title {
+      margin: 0;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 800;
+      font-size: clamp(28px, 4.6vw, 40px);
+      line-height: 0.98;
+      color: #0F4A26;
+    }
+
+    .seasonal-label {
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: 26px;
+      color: #2E7D3E;
+    }
+
+    .seasonal-description {
+      margin: 0;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #1D3B26;
+    }
+
+    .seasonal-tagline {
+      margin: 4px 0 0;
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: 24px;
+      color: #0F4A26;
+    }
+
+    /* Family Delights */
+    .family-delights {
+      margin-top: 28px;
+      background: #0F4A26;
+      border-radius: 26px;
+      padding: 28px 26px;
+      color: #FFFBEE;
+    }
+
+    .family-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .family-title {
+      margin: 0;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 800;
+      font-size: clamp(22px, 3.4vw, 30px);
+      color: #FFD21A;
+      line-height: 1.05;
+    }
+
+    .family-subtitle {
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: 22px;
+      color: #FFFBEE;
+    }
+
+    .bottles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .bottle-card {
+      background: rgba(255, 251, 238, 0.09);
+      border: 2px solid rgba(255, 210, 26, 0.5);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .bottle-name {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: #FFFBEE;
+      line-height: 1.15;
+    }
+
+    .bottle-size {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #FFD21A;
+      margin-top: 4px;
+    }
+
+    /* Branches Section */
+    .branches {
+      padding: 64px 20px 70px;
+      background: #FFFBEE;
+    }
+
+    .branches-content {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .branches-header {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .branches-title {
+      margin: 0;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 800;
+      font-size: clamp(30px, 5vw, 50px);
+      line-height: 1;
+      color: #0F4A26;
+    }
+
+    .branches-subtitle {
+      margin: 6px 0 0;
+      font-weight: 600;
+      font-size: 15px;
+      color: #14512A;
+      max-width: 44ch;
+    }
+
+    .branches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+    }
+
+    .branch-card {
+      background: #FFD21A;
+      border: 3px solid #0F4A26;
+      border-radius: 22px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-height: 150px;
+    }
+
+    .branch-pin {
+      width: 14px;
+      height: 14px;
+      border: 3px solid #0F4A26;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      margin-bottom: 8px;
+    }
+
+    .branch-mall {
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 800;
+      font-size: 21px;
+      line-height: 1.05;
+      color: #0F4A26;
+    }
+
+    .branch-city {
+      font-weight: 700;
+      font-size: 14px;
+      color: #14512A;
+    }
+
+    .branch-note {
+      margin-top: auto;
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: 20px;
+      color: #2E7D3E;
+    }
+
+    .branches-note {
+      text-align: center;
+      margin: 22px 0 0;
+      font-weight: 700;
+      font-size: 15px;
+      color: #2E7D3E;
+    }
+
+    /* Footer */
+    footer {
+      background: #0F4A26;
+      color: #FFFBEE;
+      padding: 52px 20px 34px;
+    }
+
+    .footer-content {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: #FFD21A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 72px;
+      color: #0F4A26;
+    }
+
+    .footer-tagline {
+      margin: 0;
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: 32px;
+      color: #FFD21A;
+      line-height: 1;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: 99px;
+      background: #FFD21A;
+      color: #0F4A26;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .social-link:hover {
+      background: #FFFBEE;
+      color: #0F4A26;
+    }
+
+    .social-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #0F4A26;
+      color: #FFD21A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Baloo 2', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .social-icon.instagram {
+      border-radius: 8px;
+      background: transparent;
+      border: 3px solid #0F4A26;
+    }
+
+    .social-icon.instagram::before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2.5px solid #0F4A26;
+      display: block;
+    }
+
+    .footer-description {
+      margin: 4px 0 0;
+      font-weight: 600;
+      font-size: 14px;
+      color: rgba(255, 251, 238, 0.75);
+      max-width: 44ch;
+      line-height: 1.6;
+    }
+
+    .footer-copyright {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: rgba(255, 251, 238, 0.5);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-panel {
+        box-shadow: none;
+      }
+
+      .seasonal {
+        box-shadow: none;
+      }
+
+      .family-delights {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div style="width:100%; overflow-x:hidden">
+
+    <!-- Header -->
+    <header>
+      <a href="#top" class="logo-link">
+        <div class="logo-circle">🍋</div>
+        <span class="brand-name">JACK'S<span class="brand-tagline">lemonade</span></span>
+      </a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#branches" class="nav-cta">Find a Branch</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="top" class="hero">
+      <div class="hero-deco">
+        <div class="deco-shape deco-teardrop" style="top:56px; left:6%; width:18px; height:18px; transform:rotate(-45deg); opacity:.55;"></div>
+        <div class="deco-shape deco-teardrop" style="top:22%; left:14%; width:12px; height:12px; transform:rotate(-45deg); opacity:.35;"></div>
+        <div class="deco-shape deco-teardrop" style="top:12%; right:9%; width:22px; height:22px; transform:rotate(-45deg); opacity:.5;"></div>
+        <div class="deco-shape deco-teardrop" style="bottom:16%; right:16%; width:14px; height:14px; transform:rotate(-45deg); opacity:.35;"></div>
+        <div class="deco-shape deco-leaf" style="top:30%; left:5%; width:34px; height:34px; transform:rotate(18deg); opacity:.5;"></div>
+        <div class="deco-shape deco-leaf" style="bottom:12%; left:11%; width:26px; height:26px; transform:rotate(-32deg); opacity:.45;"></div>
+        <div class="deco-shape deco-leaf" style="top:40%; right:5%; width:30px; height:30px; transform:rotate(140deg); opacity:.4;"></div>
+        <div class="deco-shape deco-dot" style="top:16%; left:26%; width:4px; height:16px; transform:rotate(24deg);"></div>
+        <div class="deco-shape deco-dot" style="top:19%; left:29%; width:4px; height:11px; transform:rotate(24deg);"></div>
+        <div class="deco-shape deco-dot" style="bottom:22%; right:29%; width:4px; height:15px; transform:rotate(-22deg); opacity:.28;"></div>
+        <div class="deco-shape deco-heart" style="top:8%; left:44%; font-size:30px; opacity:.35;">♥</div>
+        <div class="deco-shape deco-heart" style="bottom:9%; left:38%; font-size:22px; opacity:.3;">♥</div>
+        <div class="deco-shape deco-circle" style="bottom:-70px; right:-70px; width:230px; height:230px;"></div>
+        <div class="deco-shape deco-circle" style="bottom:-40px; left:-60px; width:170px; height:170px;"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-logo">🍋</div>
+        <p class="hero-tagline">Squeeze the joy in every sip!</p>
+        <h1 class="hero-title">THE ONLY <span class="fresh">fresh</span> LEMONADE IN 30 FLAVORS</h1>
+        <p class="hero-description">So refreshing, so healthy. Hand-squeezed daily and served ice-cold at malls across Metro Manila.</p>
+        <div class="hero-ctas">
+          <a href="#branches" class="cta-primary">FIND A BRANCH</a>
+          <a href="#menu" class="cta-secondary">SEE ALL 30 FLAVORS</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="promo-bar">MADE FRESH &nbsp;♥&nbsp; SERVED COLD &nbsp;♥&nbsp; LOVED BY ALL &nbsp;♥&nbsp; 30 FLAVORS &nbsp;♥&nbsp; NO CONCENTRATES</div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="about-content">
+        <div class="about-text">
+          <span class="section-label">Hello from the stand</span>
+          <h2 class="section-title">FRESH-SQUEEZED,<br />NEVER SHORTCUT.</h2>
+          <p class="section-description">Jack's started as a little lemonade stand with one rule: squeeze it fresh, every single cup. Today that same rule fills 30 flavors — herbs from Mom Jenny, teas from Dad John, fruits from Sis Julia, sweets from Baby James — all made fresh, served cold, and loved by the whole family.</p>
+          <div class="badge-group">
+            <span class="badge">FRESH-SQUEEZED LEMONS</span>
+            <span class="badge">30 FLAVORS</span>
+            <span class="badge">FAMILY-SIZED SERVINGS</span>
+          </div>
+        </div>
+        <div class="about-image">
+          <div class="image-circle-frame"></div>
+          <img src="assets/cup-tamarind.png" alt="Jack's tamarind lemonade in a clear cup with basil, cucumber and lemon" class="image-circle" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+      <div class="menu-content">
+        <div class="menu-header">
+          <span class="section-label">One lemon, 30 ways</span>
+          <h2 class="menu-title">THE FAMILY MENU</h2>
+          <p class="menu-subtitle">Every flavor comes in two family sizes — J1 and J2. Tap a family to see what they're squeezing.</p>
+        </div>
+
+        <!-- Tabs Mode (default) -->
+        <div id="tabs-mode">
+          <div class="menu-tabs" id="menu-tabs"></div>
+          <div class="menu-panel">
+            <div class="panel-header">
+              <h3 class="panel-title" id="panel-title"></h3>
+              <span class="panel-subtitle" id="panel-subtitle"></span>
+            </div>
+            <ul class="flavor-list" id="flavor-list"></ul>
+          </div>
+        </div>
+
+        <!-- Accordion Mode -->
+        <div id="accordion-mode" style="display: none;">
+          <div class="accordion-list" id="accordion-list"></div>
+        </div>
+
+        <!-- Seasonal -->
+        <div id="seasonal-section" class="seasonal">
+          <img src="assets/monsoon-sips.png" alt="Monsoon Sips trio: cucumber, ginger and basil tamarind lemonade" class="seasonal-image" />
+          <div class="seasonal-content">
+            <span class="seasonal-badge">SEASONAL</span>
+            <h3 class="seasonal-title">MONSOON SIPS</h3>
+            <span class="seasonal-label">the tamarind lemonade series</span>
+            <p class="seasonal-description">Three rainy-season pours from Mom Jenny's herb shelf: <strong>Cucumber Tamarind</strong>, <strong>Ginger Tamarind</strong>, and <strong>Basil Tamarind</strong> lemonade.</p>
+            <p class="seasonal-tagline">Rain happens. Refresh anyway. ♥</p>
+          </div>
+        </div>
+
+        <!-- Family Delights -->
+        <div class="family-delights">
+          <div class="family-header">
+            <h3 class="family-title">FAMILY DELIGHTS</h3>
+            <span class="family-subtitle">to-go bottles for the whole gang</span>
+          </div>
+          <div class="bottles-grid" id="bottles-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Branches Section -->
+    <section id="branches" class="branches">
+      <div class="branches-content">
+        <div class="branches-header">
+          <span class="section-label">We're around the corner</span>
+          <h2 class="branches-title">FIND A BRANCH NEAR YOU</h2>
+          <p class="branches-subtitle">Catch us in malls across Metro Manila — open with mall hours, squeezing all day.</p>
+        </div>
+        <div class="branches-grid" id="branches-grid"></div>
+        <p class="branches-note">More stands squeezing soon — follow along for openings.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">🍋</div>
+        <p class="footer-tagline">Squeeze the joy in every sip!</p>
+        <div class="footer-links">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="social-link">
+            <span class="social-icon">f</span>
+            Jack's Lemonade
+          </a>
+          <a href="https://www.instagram.com/jackslemonadeph" target="_blank" rel="noopener" class="social-link">
+            <span class="social-icon instagram"></span>
+            @jackslemonadeph
+          </a>
+        </div>
+        <p class="footer-description">The only fresh lemonade in 30 flavors that is so refreshing and healthy. Metro Manila, Philippines.</p>
+        <p class="footer-copyright">© JACK'S LEMONADE</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    const FAMILIES = [
+      { name: "Jack's Special Lemonade", chip: "Jack's Special", sub: "the signatures", flavors: [
+        { name: "Lemon Cheesecake", note: "★ SIGNATURE — MOST POPULAR" },
+        { name: "Berry Cheesecake", note: "fresh · creamy" },
+        { name: "Berry Rich Mint", note: "" },
+        { name: "Basil Rich Tamarind", note: "" },
+        { name: "Lemon Squares", note: "" },
+      ]},
+      { name: "Dad John's Tea Lemonade", chip: "Dad John's Tea", sub: "brewed & chilled", flavors: [
+        { name: "Classic Tea Lemonade", note: "" },
+        { name: "Green Apple Tea", note: "" },
+        { name: "Peach Tea", note: "" },
+        { name: "Raspberry Tea", note: "" },
+      ]},
+      { name: "Mom Jenny's Herb Lemonade", chip: "Mom Jenny's Herb", sub: "straight from the garden", flavors: [
+        { name: "Basil", note: "" },
+        { name: "Cucumber", note: "monsoon sips" },
+        { name: "Ginger", note: "monsoon sips" },
+        { name: "Mint", note: "" },
+        { name: "Tamarind", note: "monsoon sips" },
+      ]},
+      { name: "Sis Julia's Fruit Lemonade", chip: "Sis Julia's Fruit", sub: "sweet & sunny", flavors: [
+        { name: "Green Apple", note: "" },
+        { name: "Blueberry", note: "" },
+        { name: "Kiwi", note: "" },
+        { name: "Peach", note: "" },
+        { name: "Raspberry", note: "" },
+        { name: "Strawberry", note: "" },
+        { name: "Wintermelon", note: "" },
+      ]},
+      { name: "Baby James' Sweet Lemonade", chip: "Baby James' Sweet", sub: "for the little ones", flavors: [
+        { name: "Candy", note: "" },
+        { name: "Gummy", note: "" },
+      ]},
+    ];
+
+    const BOTTLES = [
+      { name: "Classic Lemonade", size: "1L" },
+      { name: "Cucumber Lemonade", size: "1L" },
+      { name: "Ginger Lemonade", size: "1L" },
+      { name: "Tamarind Lemonade", size: "1L" },
+      { name: "Classic Lemonade", size: "350ML" },
+    ];
+
+    const BRANCHES = [
+      { mall: "SM Southmall", city: "Las Piñas City", note: "ground level" },
+      { mall: "Glorietta", city: "Makati City", note: "food hall" },
+      { mall: "UP Town Center", city: "Quezon City", note: "al fresco strip" },
+      { mall: "Shangri-La Plaza", city: "Mandaluyong City", note: "east wing" },
+      { mall: "More branches", city: "Metro Manila", note: "opening soon ♥" },
+    ];
+
+    class MenuController {
+      constructor() {
+        this.activeFamily = 0;
+        this.openAccordion = -1;
+        this.menuMode = 'tabs';
+        this.showSeasonal = true;
+        this.showPrices = true;
+        this.init();
+      }
+
+      init() {
+        this.renderTabsMode();
+        this.renderAccordionMode();
+        this.renderBottles();
+        this.renderBranches();
+      }
+
+      renderTabsMode() {
+        const tabsContainer = document.getElementById('menu-tabs');
+        tabsContainer.innerHTML = FAMILIES.map((fam, i) => `
+          <button type="button" class="menu-tab ${i === this.activeFamily ? 'active' : ''}" data-index="${i}">
+            ${fam.chip}
+          </button>
+        `).join('');
+
+        document.querySelectorAll('.menu-tab').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            this.activeFamily = parseInt(e.target.dataset.index);
+            this.renderTabsMode();
+            this.renderFlavorList();
+          });
+        });
+
+        this.renderFlavorList();
+      }
+
+      renderFlavorList() {
+        const fam = FAMILIES[this.activeFamily];
+        document.getElementById('panel-title').textContent = fam.name;
+        document.getElementById('panel-subtitle').textContent = fam.sub;
+
+        const list = document.getElementById('flavor-list');
+        list.innerHTML = fam.flavors.map(fl => `
+          <li class="flavor-item">
+            <div class="flavor-info">
+              <span class="flavor-name">${fl.name}</span>
+              ${fl.note ? `<span class="flavor-note">${fl.note}</span>` : ''}
+            </div>
+            ${this.showPrices ? `
+              <div class="flavor-prices">
+                <div class="price-box">
+                  <span class="price-label">J1</span>
+                  <span class="price-value">₱ ——</span>
+                </div>
+                <div class="price-box">
+                  <span class="price-label">J2</span>
+                  <span class="price-value">₱ ——</span>
+                </div>
+              </div>
+            ` : ''}
+          </li>
+        `).join('');
+      }
+
+      renderAccordionMode() {
+        const accordionContainer = document.getElementById('accordion-list');
+        accordionContainer.innerHTML = FAMILIES.map((fam, i) => `
+          <div class="accordion-item">
+            <button type="button" class="accordion-header" data-index="${i}">
+              <div class="accordion-label">
+                <div class="accordion-label-name">${fam.name}</div>
+                <div class="accordion-label-sub">${fam.sub}</div>
+              </div>
+              <div class="accordion-toggle">${i === this.openAccordion ? '−' : '+'}</div>
+            </button>
+            <div class="accordion-content ${i === this.openAccordion ? 'open' : ''}">
+              <ul class="accordion-flavors">
+                ${fam.flavors.map(fl => `
+                  <li class="accordion-flavor">
+                    <span class="accordion-flavor-name">${fl.name}</span>
+                    ${fl.note ? `<span class="accordion-flavor-note">${fl.note}</span>` : ''}
+                    ${this.showPrices ? `<span class="accordion-flavor-price">J1 ₱—— &nbsp;J2 ₱——</span>` : ''}
+                  </li>
+                `).join('')}
+              </ul>
+            </div>
+          </div>
+        `).join('');
+
+        document.querySelectorAll('.accordion-header').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const index = parseInt(e.currentTarget.dataset.index);
+            this.openAccordion = this.openAccordion === index ? -1 : index;
+            this.renderAccordionMode();
+          });
+        });
+      }
+
+      renderBottles() {
+        const grid = document.getElementById('bottles-grid');
+        grid.innerHTML = BOTTLES.map(b => `
+          <div class="bottle-card">
+            <div class="bottle-name">${b.name}</div>
+            <div class="bottle-size">${b.size} · ₱ ——</div>
+          </div>
+        `).join('');
+      }
+
+      renderBranches() {
+        const grid = document.getElementById('branches-grid');
+        grid.innerHTML = BRANCHES.map(br => `
+          <div class="branch-card">
+            <span class="branch-pin"></span>
+            <span class="branch-mall">${br.mall}</span>
+            <span class="branch-city">${br.city}</span>
+            <span class="branch-note">${br.note}</span>
+          </div>
+        `).join('');
+      }
+
+      toggleMenuMode() {
+        this.menuMode = this.menuMode === 'tabs' ? 'accordion' : 'tabs';
+        document.getElementById('tabs-mode').style.display = this.menuMode === 'tabs' ? 'block' : 'none';
+        document.getElementById('accordion-mode').style.display = this.menuMode === 'accordion' ? 'block' : 'none';
+      }
+
+      toggleSeasonal() {
+        this.showSeasonal = !this.showSeasonal;
+        document.getElementById('seasonal-section').style.display = this.showSeasonal ? 'block' : 'none';
+      }
+
+      togglePrices() {
+        this.showPrices = !this.showPrices;
+        this.renderFlavorList();
+        this.renderAccordionMode();
+        this.renderBottles();
+      }
+    }
+
+    const menu = new MenuController();
+
+    // For testing: expose controls
+    window.menuController = menu;
+    window.toggleMenuMode = () => menu.toggleMenuMode();
+    window.toggleSeasonal = () => menu.toggleSeasonal();
+    window.togglePrices = () => menu.togglePrices();
+  </script>
+</body>
+</html>
