@@ -508,6 +508,7 @@ export default function Home() {
             Metro Manila, Philippines.
           </p>
           <p className="footer-copyright">© JACK&apos;S LEMONADE</p>
+          <p className="footer-credit">Developed by JK Cuadra</p>
         </div>
       </footer>
 

@@ -1230,6 +1230,14 @@ footer {
   color: rgba(255, 251, 238, 0.5);
 }
 
+.footer-credit {
+  margin: 4px 0 0;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(255, 251, 238, 0.3);
+}
+
 /* Responsive */
 @media (max-width: 1000px) {
   .best-sellers-grid {
