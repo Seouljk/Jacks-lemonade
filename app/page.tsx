@@ -84,8 +84,8 @@ export default function Home() {
         </a>
         <nav>
           <a href="#best-sellers">Best Sellers</a>
-          <a href="#menu">Menu</a>
           <a href="#about">About</a>
+          <a href="#menu">Menu</a>
           <a href="#branches">Find a Branch</a>
           <GrabOrderButton variant="nav" />
         </nav>

@@ -118,7 +118,7 @@ nav a {
   transition: all 0.2s ease;
 }
 
-/* Highlighter swipe under the hovered link and the section on screen (see HeaderScrollState). */
+/* Highlighter swipe under the hovered link and the section on screen (see ScrollEffects). */
 nav a:not(.nav-cta)::after {
   content: '';
   position: absolute;
